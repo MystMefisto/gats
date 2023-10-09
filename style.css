@@ -1,0 +1,166 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.logo-container,
+.functional-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.fa-solid{
+    font-size: 28px;
+    line-height: 2.5;
+    height: 10px;
+    margin-top: 5px;
+}
+
+.reload-button{
+    margin-left: auto;
+}
+
+h1{
+    font-size: 46px;
+    line-height: 0px;
+}
+
+.logo-container{
+    width: 260px;
+}
+
+.logo-container span {
+    line-height: 91px;
+    font-size: 12px;
+}
+
+.navbar{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+
+.functional-container{
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.favorite-popover-button{
+    background-color: transparent;
+
+    border: none;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 31.3%;
+    margin: 0 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border: .7px solid rgb(19, 19, 19);
+}
+
+
+
+.favorite-button{
+    margin: 0 0 0 0;
+    display: block;
+    border: none;
+    background: transparent;
+    padding: 9px;
+    margin-top: -5px;
+}
+
+.favorite-button:hover,.fa-solid:hover{
+    transform: scale(1.2);
+}
+
+.cat-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 95vw;
+    justify-content: center;
+}
+
+.cat-image {
+    align-self: center;
+    width: 100%;
+    height: auto;
+    margin: 5px;
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.favorite-popover{
+    position: absolute;
+    margin-top: 50px;
+}
+
+.header-popover{
+    display: flex;
+    width: 95vw;
+}
+
+.title-popover{
+    flex: auto;
+}
+
+.close-popover{
+    width: 35px;
+}
+
+[popover]:popover-open {
+    animation: fadein 0.5s;
+    transition: overlay-behavior 0.5s;
+    opacity: 1; /* UA default */
+  }
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+  }
