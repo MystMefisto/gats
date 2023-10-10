@@ -59,10 +59,6 @@ async function fetchFavoritedCats(apiUrl, container) {
     }
 }
 
-async function fetchSingleCat(apiUrl, container) {
-    const data = await fetchData(apiUrl);
-    document.querySelector(`#${container}`).src = data[0].url;
-}
 
 async function saveFavoriteCats(id) {
     const res = await fetch(URL_favorites, {
@@ -90,8 +86,6 @@ async function uploadCatImage() {
     const form = document.querySelector('#uploadingForm');
     const formData = new FormData(form);
 
-    console.log(formData.get('file'));
-
     const res = await fetch(URL_upload, {
         method: 'POST',
         headers: {
@@ -107,16 +101,27 @@ async function uploadCatImage() {
     setTimeout(() => {
         fetchFavoritedCats(`${URL_favorites}`, 'favorite-cats');
     }, 200);
+
+    setTimeout(() => {
+        document.querySelector('#uploadingForm span').innerText = 'Sent image';
+    }, 500);
+
+    setTimeout(() => {
+        document.querySelector('#uploadingForm span').innerText = '';
+        document.getElementById("preview").setAttribute("src", '');
+        document.getElementById("file").value='';
+    }, 2000);
 }
 
 const previewImage = () => {
     const file = document.getElementById("file").files;
-    console.log(file);
     if (file.length > 0) {
         const fileReader = new FileReader();
 
         fileReader.onload = function (e) {
             document.getElementById("preview").setAttribute("src", e.target.result);
+            document.getElementById("preview").style.width = "50%";
+            document.getElementById("preview").style.display = 'block';
         };
         fileReader.readAsDataURL(file[0]);
     }
@@ -130,11 +135,7 @@ document.addEventListener('DOMContentLoaded', e => {
 });
 
 imgContainer.addEventListener('click', e => {
-    //When is an image is clicked, change image
-    if (e.target.className === 'cat-image random-cat') {
-        const imageId = e.target.id;
-        fetchSingleCat(URL, imageId);
-    }
+
 
     //If favorite-btn is clicked, then make it favorite
 
@@ -165,15 +166,15 @@ favoriteContainer.addEventListener('click', e => {
 reloadBtn.addEventListener('click',e=>{
     e.preventDefault();
     fetchCats(`${URL}&limit=9`, 'random-cats');
-})
+});
 
 btnUpload.addEventListener('click',e => {
     e.preventDefault();
     if(e.target.classList.contains('fa-upload')){
         modalUpload.style.display = 'block';
     }
-})
+});
 
 btnUploadClose.addEventListener('click', e=>{
     modalUpload.style.display = 'none';
-})
+});

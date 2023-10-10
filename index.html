@@ -9,11 +9,10 @@
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/11633/11633599.png">
     <!-- Awesome fonts -->
     <script src="https://kit.fontawesome.com/0a571dd4a8.js" crossorigin="anonymous"></script>
-    <!-- Roboto font -->
+    <!-- Garabito font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -22,7 +21,6 @@
         <nav class="navbar">
             <div class="logo-container">
                 <h1>Gats</h1>
-                <span>Your pinterest like cat album</span>
             </div>
 
             <div class="functional-container">
@@ -34,9 +32,9 @@
                     <i class="fa-solid fa-arrow-rotate-right"></i>
                 </a>
 
-            <button class="favorite-popover-button" popovertarget="mypopover">
+                <button class="favorite-popover-button" popovertarget="mypopover">
                     <i class="fa-solid fa-heart"></i>
-            </button>
+                </button>
             </div>
         </nav>
     </header>
@@ -44,40 +42,37 @@
     <section id="uploadCat" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Upload a cat image</h2>
+                <h2 class="modal-title">Upload a cat image</h2>
                 <span class="close">&times;</span>
             </div>
             <form id="uploadingForm">
-                <input onchange="previewImage()" class="preview-container" id="file" type="file" name="file">
                 <img alt="" id="preview">
+                <span></span>
+                <input onchange="previewImage()" class="preview-container" id="file" type="file" name="file">
                 <button type="button" onclick="uploadCatImage()">Upload cat image</button>
             </form>
         </div>
 
     </section>
 
-    
 
-<div class="favorite-popover" id="mypopover" popover>
-    <div class="header-popover">
-        <h2 class="title-popover">Favorite cats</h2>
-        <button popovertarget="mypopover" popovertargetaction="hidden" class="close-popover">&times;</button>
+
+    <div class="favorite-popover" id="mypopover" popover>
+        <div class="header-popover">
+            <h2 class="title-popover">Favorite cats</h2>
+            <button popovertarget="mypopover" popovertargetaction="hidden" class="close-popover">&times;</button>
+        </div>
+        <section class="cat-container" id="favorite-cats">
+            <article>
+
+            </article>
+        </section>
+
     </div>
-    <section class="cat-container" id="favorite-cats">
-        <article>
-
-        </article>
-    </section>
-
-</div>
 
     <section id="random-cats" class="cat-container">
 
     </section>
-
-
-
-
 
     <script src="main.js"></script>
 </body>
